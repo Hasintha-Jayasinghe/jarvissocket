@@ -10,15 +10,12 @@ const sleep = (ms: number) => {
   return new Promise(resolve => setTimeout(resolve, ms));
 };
 
-let lastId: string;
-
 io.on('connection', socket => {
   socket.on('message', text => {
     console.log(text);
     const data = JSON.parse(text);
     console.log('sending data to jarvis');
     io.emit('jarvis-message', text);
-    lastId = String(data.id);
     sleep(3000);
   });
 });
