@@ -13,7 +13,7 @@ const sleep = (ms: number) => {
 io.on('connection', socket => {
   socket.on('message', text => {
     console.log(text);
-    const data = JSON.parse(text);
+    //const data = JSON.parse(text);
     console.log('sending data to jarvis');
     io.emit('jarvis-message', text);
     sleep(3000);
